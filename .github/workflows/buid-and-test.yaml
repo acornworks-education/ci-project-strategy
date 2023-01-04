@@ -1,8 +1,7 @@
 name: build-and-test-java
 run-name: Build and test for Java
-on: [push]
-# permissions:
-#   pull-requests: write
+on:
+  - pull_request
 jobs:
   build-and-test-java:
     runs-on: ubuntu-latest
