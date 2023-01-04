@@ -31,3 +31,15 @@ jobs:
         with:
           paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
+  slack-failure-notification:
+    needs: build-and-test-java
+    # if: ${{ always() && contains(needs.*.result, 'failure') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send a Notification to github channel
+        id: slack-send-failure
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          channel-id: '#github_failure'
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
