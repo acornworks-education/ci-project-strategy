@@ -13,3 +13,4 @@ killall gpg-agent && gpg-agent --daemon
 git config --global gpg.program gpg
 git config --global user.signingkey 6BC035D6E140E7A1
 git config --global commit.gpgsign true
+git config --global user.email a@b.com
