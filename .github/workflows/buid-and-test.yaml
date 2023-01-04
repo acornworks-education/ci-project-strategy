@@ -21,6 +21,10 @@ jobs:
         uses: gradle/gradle-build-action@v2      
       - name: Execute Gradle build
         run: ./gradlew build
+  report-coverage:
+    runs-on: ubuntu-latest
+    needs: build-and-test-java
+    steps:
       - name: Add coverage to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
