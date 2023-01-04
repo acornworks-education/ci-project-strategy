@@ -1,0 +1,31 @@
+name: build-test-strategy-service
+run-name: Build and test for strategy service
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Source code checkout
+      uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: acgtions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'corretto'
+        architecture: x64
+    - name: Set up Gradle
+      uses: gradle/gradle-build-action@v2
+    - name: Execute Gradle build
+      run: ./gradlew build
+    - name: Add coverage to PR
+      id: jacoco
+      uses: madrapps/jacoco-report@v1.3
+      with:
+        paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
+        token: ${{ secrets.GITHUB_TOKEN }}
+        min-coverage-overall: 90
