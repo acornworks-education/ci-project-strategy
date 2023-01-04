@@ -20,22 +20,6 @@ jobs:
         uses: gradle/gradle-build-action@v2      
       - name: Execute Gradle build
         run: ./gradlew build
-      - name: Cache a Jacoco Report
-        uses: actions/cache@v2
-        id: cache-jacoco
-        with:
-          path: ./build/reports/jacoco/test
-          key: jacocoTestReport.xml
-  report-coverage:
-    runs-on: ubuntu-latest
-    needs: build-and-test-java
-    steps:
-      - name: Restore the Jacoco Report from the cache
-        uses: actions/cache@v2
-        id: restore-jacoco
-        with: 
-          path: ./build/reports/jacoco/test
-          key: jacocoTestReport.xml
       - name: Add coverage to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.3
