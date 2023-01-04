@@ -14,3 +14,8 @@ git config --global gpg.program gpg
 git config --global user.signingkey 6BC035D6E140E7A1
 git config --global commit.gpgsign true
 git config --global user.email a@b.com
+
+
+git config --global --unset user.email
+git config --global --unset commit.gpgsign
+git config --global --unset gpg.program
