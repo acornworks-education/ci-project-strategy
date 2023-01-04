@@ -35,7 +35,7 @@ jobs:
         uses: actions/cache@v2
         id: restore-jacoco
         with: 
-          path: ${{ github.workspace }}/build/reports/jacoco/test
+          path: ./build/reports/jacoco/test
           key: jacocoTestReport.xml
       - name: Add coverage to PR
         id: jacoco
