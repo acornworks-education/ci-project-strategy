@@ -65,6 +65,8 @@ jobs:
         aws-region: ap-southeast-2
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         role-duration-seconds: 1200        
+    - name: Source code checkout
+      uses: actions/checkout@v3
     - name: Setup Infracost
       uses: infracost/actions/setup@v2
       with:
