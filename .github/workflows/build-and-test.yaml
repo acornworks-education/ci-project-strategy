@@ -55,7 +55,7 @@ jobs:
       run: trufflehog filesystem --directory=. --fail --only-verified
   infracost:
     runs-on: ubuntu-latest
-    needs: build-and-test
+    # needs: build-and-test
     steps:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -77,11 +77,19 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.base.ref }}
     - name: Generate cost estimation baseline
-      run: infracost breakdown --path=./deploy/terraform --format=json --out-file=/tmp/infracost-base.json
+      run: |
+        if [ -f "./deploy/terraform/main.tf" ]; then
+          infracost breakdown --path=./deploy/terraform --format=json --out-file=/tmp/infracost-base.json
+        fi        
     - name: Source code checkout for PR branch
       uses: actions/checkout@v3
     - name: Generate Infracost diff
-      run: infracost diff --path=./deploy/terraform --format=json --compare-to=/tmp/infracost-base.json --out-file=/tmp/infracost.json
+      run: |
+        if [ -f "/tmp/infracost-base.json" ]; then
+          infracost diff --path=./deploy/terraform --format=json --compare-to=/tmp/infracost-base.json --out-file=/tmp/infracost.json
+        else
+          infracost breakdown --path=./deploy/terraform --format=json --out-file=/tmp/infracost.json
+        fi
     - name: Post Infracost comment
       run: infracost comment github --path=/tmp/infracost.json --repo=$GITHUB_REPOSITORY --github-token=${{github.token}} --pull-request=$${{github.event.pull_request.number}} --behavior=update
   slack-failure-notification:
