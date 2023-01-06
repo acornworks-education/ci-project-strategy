@@ -91,7 +91,7 @@ jobs:
           infracost breakdown --path=./deploy/terraform --format=json --out-file=/tmp/infracost.json
         fi
     - name: Post Infracost comment
-      run: infracost comment github --path=/tmp/infracost.json --repo=$GITHUB_REPOSITORY --github-token=${{github.token}} --pull-request=$${{github.event.pull_request.number}} --behavior=update
+      run: infracost comment github --path=/tmp/infracost.json --repo=$GITHUB_REPOSITORY --github-token=${{github.token}} --pull-request=${{github.event.pull_request.number}} --behavior=update
   slack-failure-notification:
     needs: build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
