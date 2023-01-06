@@ -93,10 +93,10 @@ jobs:
     - name: Post Infracost comment
       run: infracost comment github --path=/tmp/infracost.json --repo=$GITHUB_REPOSITORY --github-token=${{github.token}} --pull-request=${{github.event.pull_request.number}} --behavior=update
   sonarqube:
-    # needs:
-    #   - conftest
-    #   - infracost
-    #   - trufflehog
+    needs:
+      - conftest
+      - infracost
+      - trufflehog
     runs-on: ubuntu-latest
     steps:
       - name: Source code checkout
@@ -138,10 +138,52 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONARQUBE_API_URL }}
-      # - name: Delete a SonarQube project
-      #   if: ${{ github.event_name == "pull_request" }}
-      #   run: |
-      #     curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/delete" -d "project=${{env.sonarqube_project_name}}"
+      - name: Delete a SonarQube project
+        if: ${{ github.event_name == "pull_request" }}
+        run: |
+          curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/delete" -d "project=${{env.sonarqube_project_name}}"
+  trivy:
+    # needs:
+    #   - conftest
+    #   - infracost
+    #   - trufflehog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Source code checkout
+        uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'corretto'
+          architecture: x64
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Execute Gradle dependency lock
+        run: ./gradlew dependencies --write-locks
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: .
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+      - name: Generate SBOM
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: .
+          ignore-unfixed: true
+          format: 'cyclonedx'
+          output: 'cyclonedx.json'
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+      - name: Upload SBOM to Dependency Track
+        run: |
+          curl -X "POST" -H "Content-Type: multipart/form-data" -H "${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
   slack-failure-notification:
     needs:
       - conftest
