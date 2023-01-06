@@ -16,15 +16,6 @@ provider "aws" {
   region = "ap-southeast-2"
 }
 
-resource "aws_s3_bucket" "test" {
-    bucket = "acornworks-test-f00d3247"
-
-    tags = {
-      "service" = "platform"
-      "org" = "acornworks"
-    }
-}
-
 resource "aws_ecs_cluster" "acornworks" {
   name = "acornworks_cluster"
 }
