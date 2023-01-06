@@ -2,3 +2,6 @@ bin/
 .gradle/
 .vscode/
 build/
+.terraform
+.infracost
+.terraform.lock.hcl
