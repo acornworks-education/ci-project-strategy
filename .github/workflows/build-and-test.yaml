@@ -40,7 +40,7 @@ jobs:
     - name: Validate Terraform policy
       run: |
         conftest pull git::https://github.com/rallyhealth/conftest-policy-packs.git//policies
-        conftest test -p ./polciy --all-namespaces -o github ./deploy/terraform/*.tf
+        conftest test -p ./policy --all-namespaces -o github ./deploy/terraform/*.tf
   slack-failure-notification:
     needs: build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
