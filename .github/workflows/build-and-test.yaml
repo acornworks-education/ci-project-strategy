@@ -125,7 +125,7 @@ jobs:
           conftest test -p ./policy --all-namespaces -o github ./deploy/terraform/main.tf          
       - name: Validate Terraform policy
         run: |          
-          conftest test -p ./policy --all-namespaces -o github ./deploy/k8s/deployment.yaml
+          conftest test --update github.com/instrumenta/policies.git//kubernetes -o github deploy/k8s/deployment.yaml 
   trufflehog:
     runs-on: ubuntu-latest
     container: trufflesecurity/trufflehog:latest
