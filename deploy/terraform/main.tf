@@ -14,9 +14,6 @@ terraform {
 
 provider "aws" {
   region = "ap-southeast-2"
-
-  access_key = "AKIAYAGS2F4CBIEVLBMY"
-  secret_key = "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"
 }
 
 resource "aws_ecs_cluster" "acornworks" {

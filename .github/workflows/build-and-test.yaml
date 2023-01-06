@@ -52,7 +52,7 @@ jobs:
     - name: Source code checkout
       uses: actions/checkout@v3
     - name: TruffleHog Scan
-      run: trufflehog filesystem --directory=. --fail
+      run: trufflehog filesystem --directory=. -x=.tgignore --fail
   slack-failure-notification:
     needs: build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
