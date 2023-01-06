@@ -92,6 +92,45 @@ jobs:
         fi
     - name: Post Infracost comment
       run: infracost comment github --path=/tmp/infracost.json --repo=$GITHUB_REPOSITORY --github-token=${{github.token}} --pull-request=${{github.event.pull_request.number}} --behavior=update
+  sonarqube:
+    # needs:
+    #   - conftest
+    #   - infracost
+    #   - trufflehog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Source code checkout
+        uses: actions/checkout@v3
+      - name: Set SonarQube project name
+        run: |
+          BRANCH_NAME=$(echo $GITHUB_REF_NAME | sed -e "s/\//\-/g")
+          REPO_NAME=$(echo $GITHUB_REPOSITORY | sed -e "s/\//\-/g")
+          PROJECT_NAME="${REPO_NAME}-${BRANCH_NAME}"
+
+          echo "sonarqube_project_name=${PROJECT_NAME}" >> $GITHUB_ENV
+      - name: Create a SonarQube project
+        run: |
+          curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/create" -d "name=${{env.sonarqube_project_name}}&project=${{env.sonarqube_project_name}}"
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_API_URL }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=${{env.sonarqube_project_name}}
+      - name: SonarQube Quality Gate check
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_API_URL }}
+      # - name: Delete a SonarQube project
+      #   if: ${{ github.event_name == "pull_request" }}
+      #   run: |
+      #     curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/delete" -d "project=${{env.sonarqube_project_name}}"
   slack-failure-notification:
     needs:
       - conftest
