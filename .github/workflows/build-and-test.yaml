@@ -30,6 +30,17 @@ jobs:
         paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
         token: ${{ secrets.GITHUB_TOKEN }}
         min-coverage-overall: 90
+  conftest:
+    runs-on: ubuntu-latest
+    # needs: build-and-test
+    container: openpolicyagent/conftest:latest
+    steps:
+    - name: Source code checkout
+      uses: actions/checkout@v3
+    - name: Validate Terraform policy
+      run: |
+        conftest pull git::https://github.com/rallyhealth/conftest-policy-packs.git//policies
+        conftest test -p ./polciy --all-namespaces -o github ./deploy/terraform/*.tf
   slack-failure-notification:
     needs: build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
