@@ -41,6 +41,9 @@ jobs:
       run: |
         conftest pull git::https://github.com/rallyhealth/conftest-policy-packs.git//policies
         conftest test -p ./policy --all-namespaces -o github ./deploy/terraform/*.tf
+    - name: Validate Kubernetes policy
+      run: |
+        conftest test --update github.com/instrumenta/policies.git//kubernetes -o github ./deploy/k8s/deployment.yaml
   slack-failure-notification:
     needs: build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
