@@ -177,13 +177,13 @@ jobs:
           ignore-unfixed: true
           format: 'cyclonedx'
           output: 'cyclonedx.json'
-      - name: Upload SBOM to Dependency Track
-        run: |
-          curl -X "POST" -H "Content-Type: multipart/form-data" -H "${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
+      - name: Upload SBOM to Dependency Track
+        run: |
+          curl -X "POST" -H "Content-Type: multipart/form-data" -H "${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" http://202.138.30.211:60003/api/v1/bom
   slack-failure-notification:
     needs:
       - conftest
