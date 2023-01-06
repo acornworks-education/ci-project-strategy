@@ -143,10 +143,10 @@ jobs:
         run: |
           curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/delete" -d "project=${{env.sonarqube_project_name}}"
   trivy:
-    # needs:
-    #   - conftest
-    #   - infracost
-    #   - trufflehog
+    needs:
+      - conftest
+      - infracost
+      - trufflehog
     runs-on: ubuntu-latest
     steps:
       - name: Source code checkout
@@ -169,6 +169,7 @@ jobs:
           ignore-unfixed: true
           format: 'sarif'
           output: 'trivy-results.sarif'
+          severity: 'CRITICAL'
       - name: Generate SBOM
         uses: aquasecurity/trivy-action@master
         with:
@@ -190,6 +191,8 @@ jobs:
       - conftest
       - infracost
       - trufflehog
+      - trivy
+      - sonarqube
       - build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
     runs-on: ubuntu-latest
