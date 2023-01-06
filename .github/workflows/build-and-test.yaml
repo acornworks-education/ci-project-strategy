@@ -183,7 +183,7 @@ jobs:
           sarif_file: 'trivy-results.sarif'
       - name: Upload SBOM to Dependency Track
         run: |
-          curl -X "POST" -H "Content-Type: multipart/form-data" -H "${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" http://202.138.30.211:60003/api/v1/bom
+          curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
   slack-failure-notification:
     needs:
       - conftest
