@@ -92,7 +92,6 @@ jobs:
                               --format=json \
                               --out-file=/tmp/infracost-base.json    
         fi
-
     - name: Checkout PR branch
       uses: actions/checkout@v3
     - name: Generate Infracost diff
@@ -123,7 +122,10 @@ jobs:
       - name: Validate Terraform policy
         run: |
           conftest pull git::https://github.com/rallyhealth/conftest-policy-packs.git//policies
-          conftest test -p ./policy --all-namespaces -o github ./deploy/terraform/main.tf
+          conftest test -p ./policy --all-namespaces -o github ./deploy/terraform/main.tf          
+      - name: Validate Terraform policy
+        run: |          
+          conftest test -p ./policy --all-namespaces -o github ./deploy/k8s/deployment.yaml
   trufflehog:
     runs-on: ubuntu-latest
     container: trufflesecurity/trufflehog:latest
