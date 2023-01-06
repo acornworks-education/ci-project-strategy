@@ -30,8 +30,74 @@ jobs:
         paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
         token: ${{ secrets.GITHUB_TOKEN }}
         min-coverage-overall: 90
-  slack-failure-notification:
+  conftest:
+    runs-on: ubuntu-latest
     needs: build-and-test
+    container: openpolicyagent/conftest:latest
+    steps:
+    - name: Source code checkout
+      uses: actions/checkout@v3
+    - name: Validate Terraform policy
+      run: |
+        conftest pull git::https://github.com/rallyhealth/conftest-policy-packs.git//policies
+        conftest test -p ./policy --all-namespaces -o github ./deploy/terraform/*.tf
+    - name: Validate Kubernetes policy
+      run: |
+        conftest test --update github.com/instrumenta/policies.git//kubernetes -o github ./deploy/k8s/deployment.yaml
+  trufflehog:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    container: trufflesecurity/trufflehog:latest
+    steps:
+    - name: Source code checkout
+      uses: actions/checkout@v3
+    - name: TruffleHog Scan
+      run: trufflehog filesystem --directory=. --fail --only-verified
+  infracost:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-southeast-2
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        role-duration-seconds: 1200        
+    - name: Setup Infracost
+      uses: infracost/actions/setup@v2
+      with:
+        api-key: ${{ secrets.INFRACOST_API_KEY }}
+    - name: Configure Infracost API endpoint
+      run: infracost configure set pricing_api_endpoint ${{ secrets.INFRACOST_API_ENDPOINT }}
+    - name: Source code checkout for base branch
+      uses: actions/checkout@v3
+      if: ${{ github.event_name == 'pull_request' }}
+      with:
+        ref: ${{ github.event.pull_request.base.ref }}
+    - name: Generate cost estimation baseline
+      run: |
+        if [ -f "./deploy/terraform/main.tf" ]; then
+          infracost breakdown --path=./deploy/terraform --format=json --out-file=/tmp/infracost-base.json
+        fi        
+    - name: Source code checkout for PR branch
+      uses: actions/checkout@v3
+    - name: Generate Infracost diff
+      run: |
+        if [ -f "/tmp/infracost-base.json" ]; then
+          infracost diff --path=./deploy/terraform --format=json --compare-to=/tmp/infracost-base.json --out-file=/tmp/infracost.json
+        else
+          infracost breakdown --path=./deploy/terraform --format=json --out-file=/tmp/infracost.json
+        fi
+    - name: Post Infracost comment
+      run: infracost comment github --path=/tmp/infracost.json --repo=$GITHUB_REPOSITORY --github-token=${{github.token}} --pull-request=${{github.event.pull_request.number}} --behavior=update
+  slack-failure-notification:
+    needs:
+      - conftest
+      - infracost
+      - trufflehog
+      - build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
     runs-on: ubuntu-latest
     steps:
