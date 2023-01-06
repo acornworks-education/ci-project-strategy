@@ -56,3 +56,35 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v3
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'HIGH'
+      - name: Generate SBOM
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'cyclonedx'
+          output: 'cyclonedx.json'
+      - name: Upload BOM to Dependency Track
+        run: |
+          curl -X "POST" "http://202.138.30.211:60003/api/v1/bom" \
+          -H 'Content-Type: multipart/form-data' \
+          -H 'X-Api-Key: 4C1lnJV3hE6v8hQWTPmRFawUdxoRruox' \
+          -F "project=cd20c602-64d3-48cc-972c-c298f1afa07b" \
+          -F "bom=$(cat cyclonedx.json)"
+          - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'      
+          
