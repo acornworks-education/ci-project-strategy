@@ -87,6 +87,8 @@ jobs:
         ref: '${{ github.event.pull_request.base.ref }}'    
     - name: Generate Infracost cost estimate baseline
       run: |
+        mkdir -p ./deploy/terraform
+
         infracost breakdown --path=./deploy/terraform \
                             --format=json \
                             --out-file=/tmp/infracost-base.json    
