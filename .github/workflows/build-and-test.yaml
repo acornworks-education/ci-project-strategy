@@ -175,6 +175,7 @@ jobs:
           scan-type: fs
           scan-ref: .
           ignore-unfixed: true
+          security-checks: vuln
           format: 'cyclonedx'
           output: 'cyclonedx.json'
       - name: Upload Trivy scan results to GitHub Security tab
