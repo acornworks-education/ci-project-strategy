@@ -89,6 +89,10 @@ jobs:
       run: |
         mkdir -p ./deploy/terraform
 
+        if [ ! -f "./deploy/terraform/main.tf" ]; then
+          touch ./deploy/terraform/main.tf
+        fi
+
         infracost breakdown --path=./deploy/terraform \
                             --format=json \
                             --out-file=/tmp/infracost-base.json    
