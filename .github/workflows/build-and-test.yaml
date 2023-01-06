@@ -97,6 +97,7 @@ jobs:
       - conftest
       - infracost
       - trufflehog
+      - build-and-test
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
     runs-on: ubuntu-latest
     steps:
