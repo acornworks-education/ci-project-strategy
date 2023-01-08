@@ -62,7 +62,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/strategy
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy
           tags: latest
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
