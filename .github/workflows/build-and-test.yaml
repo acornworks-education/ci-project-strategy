@@ -86,6 +86,8 @@ jobs:
       #     IMAGE_NAME=${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy:latest
       #     echo $PRIVATE_KEY | base64 -d > cosign.key
       #     cosign sign --key cosign.key $IMAGE_NAME
+      - name: Pull image
+        run: docker pull ${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy:latest
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
