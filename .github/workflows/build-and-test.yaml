@@ -78,6 +78,7 @@ jobs:
       - name: Sign an image
         env:
           PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
         run: |
           IMAGE_NAME=${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy:latest
           echo $PRIVATE_KEY | base64 -d > cosign.key
@@ -102,6 +103,7 @@ jobs:
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
+          category: image-scan
           sarif_file: 'trivy-results.sarif'
       - name: Upload SBOM to Dependency Track
         run: |
