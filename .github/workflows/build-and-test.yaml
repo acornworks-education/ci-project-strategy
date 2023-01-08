@@ -81,6 +81,7 @@ jobs:
         run: |
           IMAGE_NAME=${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy:latest
           echo $PRIVATE_KEY > cosign.key
+          cat cosign.key
           cosign sign --key cosign.key $IMAGE_NAME
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
