@@ -47,7 +47,9 @@ jobs:
     # needs: build-and-test
     permissions:
       packages: write
-      contents: read    
+      contents: read
+      id-token: write
+      security-events: write
     steps:
       # - name: Download a single artifact
       #   uses: actions/download-artifact@v3
