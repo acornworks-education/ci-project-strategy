@@ -107,6 +107,7 @@ jobs:
           output: 'cyclonedx.json'
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
+        if: ${{ always() }}
         with:
           category: image-scan
           sarif_file: 'trivy-results.sarif'
