@@ -3,3 +3,5 @@ bin/
 .vscode/
 build/
 gradle.lockfile
+cosign.key
+cosign.pub
