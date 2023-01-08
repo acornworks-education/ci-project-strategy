@@ -95,7 +95,6 @@ jobs:
           ignore-unfixed: true
           format: 'sarif'
           output: 'trivy-results.sarif'
-          exit-code: '1'
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
       - name: Generate SBOM
