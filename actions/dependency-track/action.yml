@@ -23,7 +23,7 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.api-key }}
-    - ${{ inputs.proejct-key }}
+    - ${{ inputs.project-key }}
     - ${{ inputs.api-url }}
     - ${{ inputs.bom }}
 
