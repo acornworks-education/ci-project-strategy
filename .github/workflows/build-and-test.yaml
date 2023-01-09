@@ -1,11 +1,11 @@
 name: build-test-strategy-service
 run-name: Build and test for strategy service
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# on:
+#   pull_request:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 env:
   REGISTRY: ghcr.io
 jobs:
