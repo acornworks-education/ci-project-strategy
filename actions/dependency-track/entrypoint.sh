@@ -5,7 +5,6 @@ set +x
 export API_KEY=$1
 export PROJECT_KEY=$2
 export API_URL=$3
-export API_URL="${API_URL}/api/v1/bom"
 export BOM=$4
 
 export CONTENT_TYPE="Content-Type:multipart/form-data"
@@ -30,18 +29,12 @@ if [ $IS_SET_BOM -eq 0 ]; then
     exit 1
 fi
 
-set +e
+curl -v -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: $API_KEY" -F "project=$PROJECT_KEY" -F "bom=@bom-upload.json" ${API_URL}/api/v1/bom
 
-curl -X "POST" -H $CONTENT_TYPE -H "X-Api-Key: $API_KEY" -F "project=$PROJECT_KEY" -F "bom=@bom-upload.json" $API_URL
-
-export RES=$?
 echo "result=$(cat $RES_FILE)" >> $GITHUB_OUTPUT
 echo "api-url=$API_URL" >> $GITHUB_OUTPUT
 
 rm -rf $UPLOAD_FILE
-rm -rf $RES_FILE
-
-echo $GITHUB_OUTPUT
 
 set -e
 exit $RES
