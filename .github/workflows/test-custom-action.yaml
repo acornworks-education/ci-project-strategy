@@ -15,5 +15,5 @@ jobs:
           api-key: ${{secrets.DT_API_KEY}}
           project-key: ${{secrets.DT_PROJECT_KEY}}
           url: ${{secrets.DT_API_URL}}
-          bom: '("aaa": "bbb"}'
+          bom: '{"aaa": "bbb"}'
 
