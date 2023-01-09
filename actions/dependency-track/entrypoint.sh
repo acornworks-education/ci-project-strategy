@@ -8,7 +8,7 @@ export API_URL=$3
 export API_URL="${API_URL}/api/v1/bom"
 export BOM=$4
 
-export CONTENT_TYPE="Content-Type: multipart/form-data"
+export CONTENT_TYPE="Content-Type:multipart/form-data"
 export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
 export IS_SET_BOM=0
