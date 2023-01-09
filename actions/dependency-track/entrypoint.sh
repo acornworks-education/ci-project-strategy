@@ -9,7 +9,7 @@ export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
 export IS_SET_BOM=0
 
-if [[ $BOM == "{"* ]]; then
+if [[ "$BOM" == "{"* ]]; then
     echo "Read from paylaod ..."
     echo $BOM > $UPLOAD_FILE
     export IS_SET_BOM=1
