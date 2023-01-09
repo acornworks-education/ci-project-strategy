@@ -6,6 +6,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+env:
+  REGISTRY: ghcr.io
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -30,6 +32,15 @@ jobs:
         paths: ${{ github.workspace }}/build/reports/jacoco/test/jacocoTestReport.xml
         token: ${{ secrets.GITHUB_TOKEN }}
         min-coverage-overall: 90
+    - name: Archive container related files
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifact
+        retention-days: 1
+        path: |
+          build/libs/projectset-*.jar
+          src/main/resources/application.yaml
+          Dockerfile
   conftest:
     runs-on: ubuntu-latest
     needs: build-and-test
@@ -186,6 +197,77 @@ jobs:
       - name: Upload SBOM to Dependency Track
         run: |
           curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
+  container:
+    runs-on: ubuntu-latest
+    needs:
+      - sonarqube
+      - trivy
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy
+          tags: latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@main
+        with:
+          cosign-release: 'v1.13.1'
+      - name: Sign an image
+        env:
+          PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+        run: |
+          IMAGE_NAME=${{ env.REGISTRY }}/${{ github.repository_owner }}/strategy:latest
+          echo "image_name=${IMAGE_NAME}" >> $GITHUB_ENV
+          echo $PRIVATE_KEY | base64 -d > cosign.key
+          cosign sign --key cosign.key $IMAGE_NAME
+      - name: Pull image
+        run: docker pull ${{ env.image_name }}
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: image
+          image-ref: ${{ env.image_name }}
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL'
+          vuln-type: 'os,library'
+      - name: Generate SBOM
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: image
+          image-ref: ${{ env.image_name }}
+          ignore-unfixed: true
+          severity: 'CRITICAL'
+          format: 'cyclonedx'
+          output: 'cyclonedx.json'
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          category: image-scan
+          sarif_file: 'trivy-results.sarif'
+      - name: Upload SBOM to Dependency Track
+        run: |
+          curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=@cyclonedx.json" ${{secrets.DT_API_URL}}/api/v1/bom
   slack-failure-notification:
     needs:
       - conftest
@@ -194,6 +276,7 @@ jobs:
       - trivy
       - sonarqube
       - build-and-test
+      - container
     if: ${{ always() && github.ref_name == 'main' && contains(needs.*.result, 'failure') }}
     runs-on: ubuntu-latest
     steps:
