@@ -1,4 +1,7 @@
 #!/bin/sh 
+
+set +x
+
 export API_KEY=$1
 export PROJECT_KEY=$2
 export API_URL=$3
@@ -9,8 +12,6 @@ export CONTENT_TYPE="Content-Type: multipart/form-data"
 export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
 export IS_SET_BOM=0
-
-ls -al
 
 if [[ "$BOM" == "{"* ]]; then
     echo "Read from paylaod ..."
