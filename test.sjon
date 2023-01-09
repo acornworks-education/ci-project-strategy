@@ -1,0 +1,1490 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.4",
+  "serialNumber" : "urn:uuid:5ca794e1-a6b4-4f76-9818-d112e3e4439b",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2023-01-09T05:23:08Z",
+    "tools" : [
+      {
+        "vendor" : "OWASP",
+        "name" : "Dependency-Track",
+        "version" : "4.6.3"
+      }
+    ],
+    "component" : {
+      "name" : "strategy",
+      "version" : "SNAPSHOT",
+      "type" : "application",
+      "bom-ref" : "03221c80-ca6f-4f26-9f4a-55fdd81b63b5"
+    }
+  },
+  "components" : [
+    {
+      "name" : "amazon",
+      "version" : "2 (Karoo)",
+      "type" : "operating-system",
+      "bom-ref" : "a512b39f-18d5-4330-9873-4d8ae2752a28"
+    },
+    {
+      "name" : "amazon-linux-extras",
+      "version" : "2.0.1-1.amzn2",
+      "purl" : "pkg:rpm/amazon/amazon-linux-extras@2.0.1-1.amzn2?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "c8bcb105-2e13-450f-874f-9fd3aa99daa3"
+    },
+    {
+      "name" : "basesystem",
+      "version" : "10.0-7.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/basesystem@10.0-7.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "6fe61509-2055-433e-9d83-b1567cc02611"
+    },
+    {
+      "name" : "bash",
+      "version" : "4.2.46-34.amzn2",
+      "purl" : "pkg:rpm/amazon/bash@4.2.46-34.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "312dfb2e-c95b-4ab3-b606-571e9842f153"
+    },
+    {
+      "name" : "bzip2-libs",
+      "version" : "1.0.6-13.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/bzip2-libs@1.0.6-13.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "9bf03912-2cee-4286-ba45-7cd4697790a1"
+    },
+    {
+      "name" : "ca-certificates",
+      "version" : "2021.2.50-72.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/ca-certificates@2021.2.50-72.amzn2.0.3?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "65d7f810-8e4b-4e67-bd4f-519ce2b13049"
+    },
+    {
+      "name" : "chkconfig",
+      "version" : "1.7.4-1.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/chkconfig@1.7.4-1.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "09f7dc01-4004-4b38-a1b4-7efa79ed14f6"
+    },
+    {
+      "name" : "ch.qos.logback:logback-classic",
+      "version" : "1.2.11",
+      "purl" : "pkg:maven/ch.qos.logback/logback-classic@1.2.11",
+      "type" : "library",
+      "bom-ref" : "8fdd1c81-7b6f-43d8-ade1-12b6fe74c279"
+    },
+    {
+      "name" : "ch.qos.logback:logback-core",
+      "version" : "1.2.11",
+      "purl" : "pkg:maven/ch.qos.logback/logback-core@1.2.11",
+      "type" : "library",
+      "bom-ref" : "eea4b705-90cb-4303-b755-e0b82f8bf022"
+    },
+    {
+      "name" : "com.fasterxml.jackson.core:jackson-annotations",
+      "version" : "2.13.4",
+      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.13.4",
+      "type" : "library",
+      "bom-ref" : "40133253-4f95-4353-afdf-c275a34c70fe"
+    },
+    {
+      "name" : "com.fasterxml.jackson.core:jackson-core",
+      "version" : "2.13.4",
+      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.13.4",
+      "type" : "library",
+      "bom-ref" : "de0b5e62-d108-41c8-b24b-df8af5d33cf5"
+    },
+    {
+      "name" : "com.fasterxml.jackson.core:jackson-databind",
+      "version" : "2.13.4.2",
+      "purl" : "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.4.2",
+      "type" : "library",
+      "bom-ref" : "dd7a74b3-dce0-41a3-8482-b7877b416771"
+    },
+    {
+      "name" : "com.fasterxml.jackson.datatype:jackson-datatype-jdk8",
+      "version" : "2.13.4",
+      "purl" : "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jdk8@2.13.4",
+      "type" : "library",
+      "bom-ref" : "ac227c37-87f3-4093-b60f-c1119490cc14"
+    },
+    {
+      "name" : "com.fasterxml.jackson.datatype:jackson-datatype-jsr310",
+      "version" : "2.13.4",
+      "purl" : "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.13.4",
+      "type" : "library",
+      "bom-ref" : "6fb40ed3-7c4f-4831-8851-d14358c1ada8"
+    },
+    {
+      "name" : "com.fasterxml.jackson.module:jackson-module-parameter-names",
+      "version" : "2.13.4",
+      "purl" : "pkg:maven/com.fasterxml.jackson.module/jackson-module-parameter-names@2.13.4",
+      "type" : "library",
+      "bom-ref" : "b99fe752-80c1-4b38-832e-9c09bf020dfc"
+    },
+    {
+      "name" : "com.google.code.gson:gson",
+      "version" : "2.9.1",
+      "purl" : "pkg:maven/com.google.code.gson/gson@2.9.1",
+      "type" : "library",
+      "bom-ref" : "b20256e8-61ae-4ba0-9ce3-7554db6720ff"
+    },
+    {
+      "name" : "commons-beanutils:commons-beanutils",
+      "version" : "1.9.3",
+      "purl" : "pkg:maven/commons-beanutils/commons-beanutils@1.9.3",
+      "type" : "library",
+      "bom-ref" : "f6ac1265-6e8f-4aca-8582-6f8614b2afc2"
+    },
+    {
+      "name" : "commons-collections:commons-collections",
+      "version" : "3.2.2",
+      "purl" : "pkg:maven/commons-collections/commons-collections@3.2.2",
+      "type" : "library",
+      "bom-ref" : "04a1ccac-0844-4b13-a736-2958e8cd158c"
+    },
+    {
+      "name" : "commons-logging:commons-logging",
+      "version" : "1.2",
+      "purl" : "pkg:maven/commons-logging/commons-logging@1.2",
+      "type" : "library",
+      "bom-ref" : "65ce821b-8a0f-45ff-a00b-df477ec1ef5d"
+    },
+    {
+      "name" : "com.opencsv:opencsv",
+      "version" : "3.9",
+      "purl" : "pkg:maven/com.opencsv/opencsv@3.9",
+      "type" : "library",
+      "bom-ref" : "e1a166c5-7285-4ad0-ab57-23ef9bc50681"
+    },
+    {
+      "name" : "coreutils",
+      "version" : "8.22-24.amzn2",
+      "purl" : "pkg:rpm/amazon/coreutils@8.22-24.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "fde5f901-d366-49e2-8260-a5cb04804a59"
+    },
+    {
+      "name" : "cpio",
+      "version" : "2.11-28.amzn2",
+      "purl" : "pkg:rpm/amazon/cpio@2.11-28.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "eb492e68-3ed8-41bb-9f4b-d572f49774d1"
+    },
+    {
+      "name" : "curl",
+      "version" : "7.79.1-7.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/curl@7.79.1-7.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "57efa99b-66bd-4000-8dd7-28e90fe1e352"
+    },
+    {
+      "name" : "cyrus-sasl-lib",
+      "version" : "2.1.26-24.amzn2",
+      "purl" : "pkg:rpm/amazon/cyrus-sasl-lib@2.1.26-24.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "1f51b0e5-9140-41d7-b887-8d8dbb7e6b0e"
+    },
+    {
+      "name" : "dejavu-fonts-common",
+      "version" : "2.33-6.amzn2",
+      "purl" : "pkg:rpm/amazon/dejavu-fonts-common@2.33-6.amzn2?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "f6b02dd1-ace2-4680-aa9b-2c2a8ffcb762"
+    },
+    {
+      "name" : "dejavu-sans-fonts",
+      "version" : "2.33-6.amzn2",
+      "purl" : "pkg:rpm/amazon/dejavu-sans-fonts@2.33-6.amzn2?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "414cfbd7-216d-42e5-9db9-67837d0abc5a"
+    },
+    {
+      "name" : "diffutils",
+      "version" : "3.3-5.amzn2",
+      "purl" : "pkg:rpm/amazon/diffutils@3.3-5.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3c486c88-9906-4dd7-83bb-a272b088e844"
+    },
+    {
+      "name" : "elfutils-libelf",
+      "version" : "0.176-2.amzn2",
+      "purl" : "pkg:rpm/amazon/elfutils-libelf@0.176-2.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "4c34cff9-6727-4b56-b464-927d4279a4d4"
+    },
+    {
+      "name" : "expat",
+      "version" : "2.1.0-15.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/expat@2.1.0-15.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "7edadb5b-89fb-41e3-9e48-19ad1a863818"
+    },
+    {
+      "name" : "file-libs",
+      "version" : "5.11-36.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/file-libs@5.11-36.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "d0f77c4e-4b69-4227-a198-e557391c70b3"
+    },
+    {
+      "name" : "filesystem",
+      "version" : "3.2-25.amzn2.0.4",
+      "purl" : "pkg:rpm/amazon/filesystem@3.2-25.amzn2.0.4?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "d753e450-e879-4d7b-b001-59f07830ce05"
+    },
+    {
+      "name" : "findutils",
+      "version" : "1:4.5.11-6.amzn2",
+      "purl" : "pkg:rpm/amazon/findutils@1%3A4.5.11-6.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3cd65ed9-6bda-464f-9862-724020a3c659"
+    },
+    {
+      "name" : "fontconfig",
+      "version" : "2.13.0-4.3.amzn2",
+      "purl" : "pkg:rpm/amazon/fontconfig@2.13.0-4.3.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "dccd7b2f-315f-4d61-999c-81466b66e80a"
+    },
+    {
+      "name" : "fontpackages-filesystem",
+      "version" : "1.44-8.amzn2",
+      "purl" : "pkg:rpm/amazon/fontpackages-filesystem@1.44-8.amzn2?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "a4993286-20aa-4c33-8eb2-d80471420ac3"
+    },
+    {
+      "name" : "freetype",
+      "version" : "2.8-14.amzn2.1",
+      "purl" : "pkg:rpm/amazon/freetype@2.8-14.amzn2.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3f974bdd-19d5-457d-a260-290d818cf08d"
+    },
+    {
+      "name" : "gawk",
+      "version" : "4.0.2-4.amzn2.1.2",
+      "purl" : "pkg:rpm/amazon/gawk@4.0.2-4.amzn2.1.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3e62e613-1ce5-4a0f-a2fa-390a99184c1b"
+    },
+    {
+      "name" : "gdbm",
+      "version" : "1:1.13-6.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/gdbm@1%3A1.13-6.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "23c597f4-ff3e-4f63-acbf-4ba441d2334d"
+    },
+    {
+      "name" : "glib2",
+      "version" : "2.56.1-9.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/glib2@2.56.1-9.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3eb27cc4-607a-49e4-ba92-c22a0a446be8"
+    },
+    {
+      "name" : "glibc",
+      "version" : "2.26-62.amzn2",
+      "purl" : "pkg:rpm/amazon/glibc@2.26-62.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "cfdd1dd0-fdb5-4ef7-bf7e-53aaa557215a"
+    },
+    {
+      "name" : "glibc-common",
+      "version" : "2.26-62.amzn2",
+      "purl" : "pkg:rpm/amazon/glibc-common@2.26-62.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "132761c5-8a0c-4e02-b459-d9af8082fbd0"
+    },
+    {
+      "name" : "glibc-langpack-en",
+      "version" : "2.26-62.amzn2",
+      "purl" : "pkg:rpm/amazon/glibc-langpack-en@2.26-62.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "8d487d36-4e30-4cac-998d-30d19a6f6bc0"
+    },
+    {
+      "name" : "glibc-minimal-langpack",
+      "version" : "2.26-62.amzn2",
+      "purl" : "pkg:rpm/amazon/glibc-minimal-langpack@2.26-62.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "22d59b78-e06d-4c39-888b-830b48660e26"
+    },
+    {
+      "name" : "gmp",
+      "version" : "1:6.0.0-15.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/gmp@1%3A6.0.0-15.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "0ab559cb-40f9-4f32-aba8-ea79ede7752b"
+    },
+    {
+      "name" : "gnupg2",
+      "version" : "2.0.22-5.amzn2.0.5",
+      "purl" : "pkg:rpm/amazon/gnupg2@2.0.22-5.amzn2.0.5?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "9ee214d2-1547-4a88-a715-ffab46ab8e6f"
+    },
+    {
+      "name" : "gpgme",
+      "version" : "1.3.2-5.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/gpgme@1.3.2-5.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "b3d7cbfb-c40f-4bdd-98fa-556214592237"
+    },
+    {
+      "name" : "gpg-pubkey",
+      "version" : "b04f24e3-5de94a19",
+      "purl" : "pkg:rpm/amazon/gpg-pubkey@b04f24e3-5de94a19?arch=None&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "c28ca9ba-0651-45d1-9511-be2e71283a73"
+    },
+    {
+      "name" : "gpg-pubkey",
+      "version" : "c87f5b1a-593863f8",
+      "purl" : "pkg:rpm/amazon/gpg-pubkey@c87f5b1a-593863f8?arch=None&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "ec0488b6-436c-4715-bfed-2d80c15d49cd"
+    },
+    {
+      "name" : "grep",
+      "version" : "2.20-3.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/grep@2.20-3.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "78126d4a-fa8c-421a-bbe3-d608c7700615"
+    },
+    {
+      "name" : "info",
+      "version" : "5.1-5.amzn2",
+      "purl" : "pkg:rpm/amazon/info@5.1-5.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "9055cbb5-8d20-473e-b728-95ad8f478d5e"
+    },
+    {
+      "name" : "io.micrometer:micrometer-core",
+      "version" : "1.9.5",
+      "purl" : "pkg:maven/io.micrometer/micrometer-core@1.9.5",
+      "type" : "library",
+      "bom-ref" : "d30e35f7-5012-4f48-88fa-cfc19e4720ef"
+    },
+    {
+      "name" : "jakarta.annotation:jakarta.annotation-api",
+      "version" : "1.3.5",
+      "purl" : "pkg:maven/jakarta.annotation/jakarta.annotation-api@1.3.5",
+      "type" : "library",
+      "bom-ref" : "2432459c-ee42-411a-8260-9bab343f4cbc"
+    },
+    {
+      "name" : "java-11-amazon-corretto-devel",
+      "version" : "1:11.0.17.8-1",
+      "purl" : "pkg:rpm/amazon/java-11-amazon-corretto-devel@1%3A11.0.17.8-1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "dcc1fb81-2ae4-42ea-b8f5-37cd3f2c6930"
+    },
+    {
+      "name" : "keyutils-libs",
+      "version" : "1.5.8-3.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/keyutils-libs@1.5.8-3.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "da55e25f-33b9-4f32-8aee-ff8e8c487236"
+    },
+    {
+      "name" : "krb5-libs",
+      "version" : "1.15.1-37.amzn2.2.4",
+      "purl" : "pkg:rpm/amazon/krb5-libs@1.15.1-37.amzn2.2.4?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "d7c7b205-a0c4-45cd-bfce-081d43467eb8"
+    },
+    {
+      "name" : "libacl",
+      "version" : "2.2.51-14.amzn2",
+      "purl" : "pkg:rpm/amazon/libacl@2.2.51-14.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "2ad6318e-0b2f-4998-854f-199697a0788c"
+    },
+    {
+      "name" : "libassuan",
+      "version" : "2.1.0-3.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libassuan@2.1.0-3.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "6ca2f6de-1e10-457b-9fbf-6c904421d4ba"
+    },
+    {
+      "name" : "libattr",
+      "version" : "2.4.46-12.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libattr@2.4.46-12.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "ea186593-54d8-4812-9c26-45a8a6cbeef2"
+    },
+    {
+      "name" : "libblkid",
+      "version" : "2.30.2-2.amzn2.0.10",
+      "purl" : "pkg:rpm/amazon/libblkid@2.30.2-2.amzn2.0.10?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "89621925-d639-4aa8-9b3d-e5175d11c898"
+    },
+    {
+      "name" : "libcap",
+      "version" : "2.54-1.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/libcap@2.54-1.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "0700d342-9746-425c-80dc-1d913ee043f7"
+    },
+    {
+      "name" : "libcom_err",
+      "version" : "1.42.9-19.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/libcom_err@1.42.9-19.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "00bc16ab-41ed-4586-9657-e2cbf56d3049"
+    },
+    {
+      "name" : "libcrypt",
+      "version" : "2.26-62.amzn2",
+      "purl" : "pkg:rpm/amazon/libcrypt@2.26-62.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "efcd0090-016b-4872-af8d-6f6e2aa79a68"
+    },
+    {
+      "name" : "libcurl",
+      "version" : "7.79.1-7.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/libcurl@7.79.1-7.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "fc7014c4-d8ab-443e-9cae-d2f38b281b22"
+    },
+    {
+      "name" : "libdb",
+      "version" : "5.3.21-24.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/libdb@5.3.21-24.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "6cbd8d52-32c1-4d6d-886e-3d37277d8eb5"
+    },
+    {
+      "name" : "libdb-utils",
+      "version" : "5.3.21-24.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/libdb-utils@5.3.21-24.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "dbac9f3d-bcf2-4129-9ec5-abf64e6c6ba2"
+    },
+    {
+      "name" : "libffi",
+      "version" : "3.0.13-18.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libffi@3.0.13-18.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "43d968c0-eeca-4821-bb6d-735b51c47f46"
+    },
+    {
+      "name" : "libgcc",
+      "version" : "7.3.1-15.amzn2",
+      "purl" : "pkg:rpm/amazon/libgcc@7.3.1-15.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "959908ac-da71-4046-841e-f2f8eb2f4b70"
+    },
+    {
+      "name" : "libgcrypt",
+      "version" : "1.5.3-14.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/libgcrypt@1.5.3-14.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "d20a222d-9314-4aa8-8b12-d8738aa9ea09"
+    },
+    {
+      "name" : "libgpg-error",
+      "version" : "1.12-3.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/libgpg-error@1.12-3.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "7143f16f-5f78-4e54-b938-4f623b449b0f"
+    },
+    {
+      "name" : "libidn2",
+      "version" : "2.3.0-1.amzn2",
+      "purl" : "pkg:rpm/amazon/libidn2@2.3.0-1.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3059a9f3-7ebe-44e0-91fe-b5eaba2d1395"
+    },
+    {
+      "name" : "libmetalink",
+      "version" : "0.1.3-13.amzn2",
+      "purl" : "pkg:rpm/amazon/libmetalink@0.1.3-13.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "4205c04f-ec6c-49b1-8a89-5774f421c884"
+    },
+    {
+      "name" : "libmount",
+      "version" : "2.30.2-2.amzn2.0.10",
+      "purl" : "pkg:rpm/amazon/libmount@2.30.2-2.amzn2.0.10?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "7ed3d439-ec2a-4961-8733-f3b87f67804c"
+    },
+    {
+      "name" : "libnghttp2",
+      "version" : "1.41.0-1.amzn2",
+      "purl" : "pkg:rpm/amazon/libnghttp2@1.41.0-1.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "7caadada-6af1-46b4-993c-f0508437ab39"
+    },
+    {
+      "name" : "libpng",
+      "version" : "2:1.5.13-8.amzn2",
+      "purl" : "pkg:rpm/amazon/libpng@2%3A1.5.13-8.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "24142875-a6e5-47e4-af82-6e0a3b27587f"
+    },
+    {
+      "name" : "libselinux",
+      "version" : "2.5-12.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libselinux@2.5-12.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "2725c659-8621-4763-8072-71d549b1e69c"
+    },
+    {
+      "name" : "libsepol",
+      "version" : "2.5-8.1.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libsepol@2.5-8.1.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "83729ceb-518f-4978-838c-67269f42f752"
+    },
+    {
+      "name" : "libssh2",
+      "version" : "1.4.3-12.amzn2.2.3",
+      "purl" : "pkg:rpm/amazon/libssh2@1.4.3-12.amzn2.2.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "026bd83b-c811-4a8d-b039-89242322fd6c"
+    },
+    {
+      "name" : "libstdc++",
+      "version" : "7.3.1-15.amzn2",
+      "purl" : "pkg:rpm/amazon/libstdc%20%20@7.3.1-15.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "af8f98b9-7636-4a62-b80a-0103b7dd65e1"
+    },
+    {
+      "name" : "libtasn1",
+      "version" : "4.10-1.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libtasn1@4.10-1.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "65d86b6a-36af-4fb8-9bc9-63a5b2bc6b92"
+    },
+    {
+      "name" : "libunistring",
+      "version" : "0.9.3-9.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libunistring@0.9.3-9.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "d1fae2bf-5ede-40e6-95eb-14abf9931398"
+    },
+    {
+      "name" : "libuuid",
+      "version" : "2.30.2-2.amzn2.0.10",
+      "purl" : "pkg:rpm/amazon/libuuid@2.30.2-2.amzn2.0.10?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "5a2fccde-9eef-453c-980c-0dfa24258295"
+    },
+    {
+      "name" : "libverto",
+      "version" : "0.2.5-4.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/libverto@0.2.5-4.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "24f7e272-8de6-47e2-89d3-f89309f8d1a2"
+    },
+    {
+      "name" : "libxml2",
+      "version" : "2.9.1-6.amzn2.5.6",
+      "purl" : "pkg:rpm/amazon/libxml2@2.9.1-6.amzn2.5.6?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "a9bb7908-d5fb-4d66-8d2a-f7ab0a9ceac8"
+    },
+    {
+      "name" : "lua",
+      "version" : "5.1.4-15.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/lua@5.1.4-15.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "571053c6-d302-4b6c-b377-6f44729d3ada"
+    },
+    {
+      "name" : "ncurses",
+      "version" : "6.0-8.20170212.amzn2.1.4",
+      "purl" : "pkg:rpm/amazon/ncurses@6.0-8.20170212.amzn2.1.4?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "b3c58b12-d090-4d02-819c-34797e75001e"
+    },
+    {
+      "name" : "ncurses-base",
+      "version" : "6.0-8.20170212.amzn2.1.4",
+      "purl" : "pkg:rpm/amazon/ncurses-base@6.0-8.20170212.amzn2.1.4?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "e5e111f7-143f-4dfd-9fe6-2223ae58b622"
+    },
+    {
+      "name" : "ncurses-libs",
+      "version" : "6.0-8.20170212.amzn2.1.4",
+      "purl" : "pkg:rpm/amazon/ncurses-libs@6.0-8.20170212.amzn2.1.4?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "082b23c9-7cb6-492b-9dae-e3af4bd0eb19"
+    },
+    {
+      "name" : "nspr",
+      "version" : "4.34.0-3.1.amzn2",
+      "purl" : "pkg:rpm/amazon/nspr@4.34.0-3.1.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "49633d26-8273-429d-b581-d0159aec86d7"
+    },
+    {
+      "name" : "nss",
+      "version" : "3.79.0-4.amzn2",
+      "purl" : "pkg:rpm/amazon/nss@3.79.0-4.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "066f903c-0ac7-46be-b5c6-27bc9d03adab"
+    },
+    {
+      "name" : "nss-pem",
+      "version" : "1.0.3-5.amzn2",
+      "purl" : "pkg:rpm/amazon/nss-pem@1.0.3-5.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "f8b2c36c-3ed3-4e3b-86a3-e73c52138ea5"
+    },
+    {
+      "name" : "nss-softokn",
+      "version" : "3.79.0-4.amzn2",
+      "purl" : "pkg:rpm/amazon/nss-softokn@3.79.0-4.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "1da5947a-842f-491d-8d27-c6743fdc56e0"
+    },
+    {
+      "name" : "nss-softokn-freebl",
+      "version" : "3.79.0-4.amzn2",
+      "purl" : "pkg:rpm/amazon/nss-softokn-freebl@3.79.0-4.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "76cd5708-5d16-4750-b863-f32e74380d97"
+    },
+    {
+      "name" : "nss-sysinit",
+      "version" : "3.79.0-4.amzn2",
+      "purl" : "pkg:rpm/amazon/nss-sysinit@3.79.0-4.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "d02a24b9-ae1b-4dc1-8362-2a6f557b22cc"
+    },
+    {
+      "name" : "nss-tools",
+      "version" : "3.79.0-4.amzn2",
+      "purl" : "pkg:rpm/amazon/nss-tools@3.79.0-4.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "fb5a9246-f9e2-4d95-a501-3b9ff98afa51"
+    },
+    {
+      "name" : "nss-util",
+      "version" : "3.79.0-1.amzn2",
+      "purl" : "pkg:rpm/amazon/nss-util@3.79.0-1.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "5014cbe8-cbac-41f9-aa70-9b9830a9f9cc"
+    },
+    {
+      "name" : "openldap",
+      "version" : "2.4.44-23.amzn2.0.4",
+      "purl" : "pkg:rpm/amazon/openldap@2.4.44-23.amzn2.0.4?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "5b1cb7ca-6d99-401b-855a-147b5337df03"
+    },
+    {
+      "name" : "openssl-libs",
+      "version" : "1:1.0.2k-24.amzn2.0.4",
+      "purl" : "pkg:rpm/amazon/openssl-libs@1%3A1.0.2k-24.amzn2.0.4?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "8cf86a6d-4ded-421b-8db7-f4f2f0940bb0"
+    },
+    {
+      "name" : "org.apache.commons:commons-lang3",
+      "version" : "3.12.0",
+      "purl" : "pkg:maven/org.apache.commons/commons-lang3@3.12.0",
+      "type" : "library",
+      "bom-ref" : "c540bd56-3fb6-4bc2-9a87-fb5c9e8e06ea"
+    },
+    {
+      "name" : "org.apache.logging.log4j:log4j-api",
+      "version" : "2.17.2",
+      "purl" : "pkg:maven/org.apache.logging.log4j/log4j-api@2.17.2",
+      "type" : "library",
+      "bom-ref" : "52b0009d-8450-45a7-b4e3-bea299446e7a"
+    },
+    {
+      "name" : "org.apache.logging.log4j:log4j-to-slf4j",
+      "version" : "2.17.2",
+      "purl" : "pkg:maven/org.apache.logging.log4j/log4j-to-slf4j@2.17.2",
+      "type" : "library",
+      "bom-ref" : "2bcb4419-9b28-4f85-b47d-7e8309dc9439"
+    },
+    {
+      "name" : "org.apache.tomcat.embed:tomcat-embed-core",
+      "version" : "9.0.68",
+      "purl" : "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.68",
+      "type" : "library",
+      "bom-ref" : "8026e7d7-14a0-4106-ab79-7839d96aa600"
+    },
+    {
+      "name" : "org.apache.tomcat.embed:tomcat-embed-el",
+      "version" : "9.0.68",
+      "purl" : "pkg:maven/org.apache.tomcat.embed/tomcat-embed-el@9.0.68",
+      "type" : "library",
+      "bom-ref" : "ae348a4a-6099-4531-bb3d-7c32dbf1e05b"
+    },
+    {
+      "name" : "org.apache.tomcat.embed:tomcat-embed-websocket",
+      "version" : "9.0.68",
+      "purl" : "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@9.0.68",
+      "type" : "library",
+      "bom-ref" : "c33a1a30-f856-4615-b533-00d7791fd994"
+    },
+    {
+      "name" : "org.hdrhistogram:HdrHistogram",
+      "version" : "2.1.12",
+      "purl" : "pkg:maven/org.hdrhistogram/HdrHistogram@2.1.12",
+      "type" : "library",
+      "bom-ref" : "97962d46-889e-4eed-84cd-edf683e1ddec"
+    },
+    {
+      "name" : "org.jfree:jcommon",
+      "version" : "1.0.21",
+      "purl" : "pkg:maven/org.jfree/jcommon@1.0.21",
+      "type" : "library",
+      "bom-ref" : "9b85bc51-227e-4220-bcfb-4bbfcee33c05"
+    },
+    {
+      "name" : "org.jfree:jfreechart",
+      "version" : "1.0.17",
+      "purl" : "pkg:maven/org.jfree/jfreechart@1.0.17",
+      "type" : "library",
+      "bom-ref" : "4479bc53-44f4-467d-83b7-48c63726ff7d"
+    },
+    {
+      "name" : "org.latencyutils:LatencyUtils",
+      "version" : "2.0.3",
+      "purl" : "pkg:maven/org.latencyutils/LatencyUtils@2.0.3",
+      "type" : "library",
+      "bom-ref" : "63b41c7e-c48f-4304-aa25-bee09035dfc4"
+    },
+    {
+      "name" : "org.slf4j:jul-to-slf4j",
+      "version" : "1.7.36",
+      "purl" : "pkg:maven/org.slf4j/jul-to-slf4j@1.7.36",
+      "type" : "library",
+      "bom-ref" : "99c4e6ef-17d5-4229-801d-b1c5a6922f9b"
+    },
+    {
+      "name" : "org.slf4j:slf4j-api",
+      "version" : "1.7.36",
+      "purl" : "pkg:maven/org.slf4j/slf4j-api@1.7.36",
+      "type" : "library",
+      "bom-ref" : "7c304044-4895-4582-bad6-8bb4eea2da2a"
+    },
+    {
+      "name" : "org.springframework.boot:spring-boot",
+      "version" : "2.7.5",
+      "purl" : "pkg:maven/org.springframework.boot/spring-boot@2.7.5",
+      "type" : "library",
+      "bom-ref" : "4c14b05a-deb8-4a18-8603-9ba38dcf776a"
+    },
+    {
+      "name" : "org.springframework.boot:spring-boot-actuator",
+      "version" : "2.7.5",
+      "purl" : "pkg:maven/org.springframework.boot/spring-boot-actuator@2.7.5",
+      "type" : "library",
+      "bom-ref" : "cac1d8ab-8c5b-4a89-bbf6-57e2df658f00"
+    },
+    {
+      "name" : "org.springframework.boot:spring-boot-actuator-autoconfigure",
+      "version" : "2.7.5",
+      "purl" : "pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@2.7.5",
+      "type" : "library",
+      "bom-ref" : "62f735d9-09fb-40c5-9d5e-17dacb84de1e"
+    },
+    {
+      "name" : "org.springframework.boot:spring-boot-autoconfigure",
+      "version" : "2.7.5",
+      "purl" : "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@2.7.5",
+      "type" : "library",
+      "bom-ref" : "5e017361-ed01-4c3b-966f-aedc8eda7d92"
+    },
+    {
+      "name" : "org.springframework.boot:spring-boot-jarmode-layertools",
+      "version" : "2.7.5",
+      "purl" : "pkg:maven/org.springframework.boot/spring-boot-jarmode-layertools@2.7.5",
+      "type" : "library",
+      "bom-ref" : "a9f30cb0-3fdd-451c-a4a8-966c05a78d05"
+    },
+    {
+      "name" : "org.springframework:spring-aop",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-aop@5.3.23",
+      "type" : "library",
+      "bom-ref" : "e592a33f-f0a3-4760-bcfc-75317dc82f27"
+    },
+    {
+      "name" : "org.springframework:spring-beans",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-beans@5.3.23",
+      "type" : "library",
+      "bom-ref" : "82c1e7cb-9e58-4489-980f-a67523077eab"
+    },
+    {
+      "name" : "org.springframework:spring-context",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-context@5.3.23",
+      "type" : "library",
+      "bom-ref" : "2d63c87f-78a4-4c69-b58b-c50c1e501ee9"
+    },
+    {
+      "name" : "org.springframework:spring-core",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-core@5.3.23",
+      "type" : "library",
+      "bom-ref" : "d15b96ce-6cd7-447c-8575-0c5a4aede0c0"
+    },
+    {
+      "name" : "org.springframework:spring-expression",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-expression@5.3.23",
+      "type" : "library",
+      "bom-ref" : "f9ce4471-82e4-40c0-a721-fb0fdd6618d5"
+    },
+    {
+      "name" : "org.springframework:spring-jcl",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-jcl@5.3.23",
+      "type" : "library",
+      "bom-ref" : "bcda3a02-aad9-474c-87de-4c1d8de459c5"
+    },
+    {
+      "name" : "org.springframework:spring-web",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-web@5.3.23",
+      "type" : "library",
+      "bom-ref" : "35b21694-c69c-4134-a642-59763ff8313f"
+    },
+    {
+      "name" : "org.springframework:spring-webmvc",
+      "version" : "5.3.23",
+      "purl" : "pkg:maven/org.springframework/spring-webmvc@5.3.23",
+      "type" : "library",
+      "bom-ref" : "ffb77bc7-936c-4918-a645-974f902785d7"
+    },
+    {
+      "name" : "org.ta4j:ta4j-core",
+      "version" : "0.15",
+      "purl" : "pkg:maven/org.ta4j/ta4j-core@0.15",
+      "type" : "library",
+      "bom-ref" : "39e67200-5860-4ad5-a771-dd99627a9a17"
+    },
+    {
+      "name" : "org.ta4j:ta4j-examples",
+      "version" : "0.15",
+      "purl" : "pkg:maven/org.ta4j/ta4j-examples@0.15",
+      "type" : "library",
+      "bom-ref" : "f2c1ef97-c60c-4029-b9b5-bfe5bcf4b59e"
+    },
+    {
+      "name" : "org.yaml:snakeyaml",
+      "version" : "1.30",
+      "purl" : "pkg:maven/org.yaml/snakeyaml@1.30",
+      "type" : "library",
+      "bom-ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+    },
+    {
+      "name" : "p11-kit",
+      "version" : "0.23.22-1.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/p11-kit@0.23.22-1.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "8af50c52-e623-4159-b485-787c3fb2148d"
+    },
+    {
+      "name" : "p11-kit-trust",
+      "version" : "0.23.22-1.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/p11-kit-trust@0.23.22-1.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "db725ed3-cb86-414f-bd08-91b06816d44d"
+    },
+    {
+      "name" : "pcre",
+      "version" : "8.32-17.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/pcre@8.32-17.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "a6d7da8d-3651-43a0-b2dc-12068021ba4f"
+    },
+    {
+      "name" : "pinentry",
+      "version" : "0.8.1-17.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/pinentry@0.8.1-17.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "57965b4d-eae6-4312-90a9-bd3a7b6436e6"
+    },
+    {
+      "name" : "popt",
+      "version" : "1.13-16.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/popt@1.13-16.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "297e1fc2-c9aa-4c86-9bf3-8c979a5e56b7"
+    },
+    {
+      "name" : "pth",
+      "version" : "2.0.7-23.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/pth@2.0.7-23.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "f859bad6-34d4-43a0-b075-c9bed71b72a4"
+    },
+    {
+      "name" : "pygpgme",
+      "version" : "0.3-9.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/pygpgme@0.3-9.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "f6802c78-d147-4c46-9c0e-5e722a79dd94"
+    },
+    {
+      "name" : "pyliblzma",
+      "version" : "0.5.3-25.amzn2",
+      "purl" : "pkg:rpm/amazon/pyliblzma@0.5.3-25.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "555ab950-ce76-4b18-b01f-1f42f62f83e3"
+    },
+    {
+      "name" : "python",
+      "version" : "2.7.18-1.amzn2.0.5",
+      "purl" : "pkg:rpm/amazon/python@2.7.18-1.amzn2.0.5?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "1d6151dd-6474-47ea-8352-ce5fb3e9e461"
+    },
+    {
+      "name" : "python2-rpm",
+      "version" : "4.11.3-48.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/python2-rpm@4.11.3-48.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "edbb15d6-8ff6-48ea-a200-8bbc44feadab"
+    },
+    {
+      "name" : "python-iniparse",
+      "version" : "0.4-9.amzn2",
+      "purl" : "pkg:rpm/amazon/python-iniparse@0.4-9.amzn2?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "1cad8719-4215-40c9-8880-689103ace11a"
+    },
+    {
+      "name" : "python-libs",
+      "version" : "2.7.18-1.amzn2.0.5",
+      "purl" : "pkg:rpm/amazon/python-libs@2.7.18-1.amzn2.0.5?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "857332a0-42a5-44a9-85cc-f9d1006f12ef"
+    },
+    {
+      "name" : "python-pycurl",
+      "version" : "7.19.0-19.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/python-pycurl@7.19.0-19.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "2faf0eba-e853-4853-a0ed-ce17c7579f73"
+    },
+    {
+      "name" : "python-urlgrabber",
+      "version" : "3.10-9.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/python-urlgrabber@3.10-9.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "9fee3464-04b5-4c18-b2c8-eef956d4ef10"
+    },
+    {
+      "name" : "pyxattr",
+      "version" : "0.5.1-5.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/pyxattr@0.5.1-5.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "3f83f44b-00ac-49e7-be4b-222f20782f5b"
+    },
+    {
+      "name" : "readline",
+      "version" : "6.2-10.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/readline@6.2-10.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "fe75c55c-8e89-4af8-8bbd-048791e08a75"
+    },
+    {
+      "name" : "rpm",
+      "version" : "4.11.3-48.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/rpm@4.11.3-48.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "8e73009b-1571-4009-8fde-b92c220c3866"
+    },
+    {
+      "name" : "rpm-build-libs",
+      "version" : "4.11.3-48.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/rpm-build-libs@4.11.3-48.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "dd4cc950-f687-4bae-a2c1-b68e869efde7"
+    },
+    {
+      "name" : "rpm-libs",
+      "version" : "4.11.3-48.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/rpm-libs@4.11.3-48.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "a2608e6d-f8b9-49a9-b4ab-508f9c99ef84"
+    },
+    {
+      "name" : "sed",
+      "version" : "4.2.2-5.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/sed@4.2.2-5.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "65d3055e-0019-45f7-817a-a82a9dad3966"
+    },
+    {
+      "name" : "setup",
+      "version" : "2.8.71-10.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/setup@2.8.71-10.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "139f549d-fa1a-4b11-80aa-2aa78630fde9"
+    },
+    {
+      "name" : "shared-mime-info",
+      "version" : "1.8-4.amzn2",
+      "purl" : "pkg:rpm/amazon/shared-mime-info@1.8-4.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "cb576102-a2c0-4eb2-b3fd-16557598d1f9"
+    },
+    {
+      "name" : "sqlite",
+      "version" : "3.7.17-8.amzn2.1.1",
+      "purl" : "pkg:rpm/amazon/sqlite@3.7.17-8.amzn2.1.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "1c2f1838-3213-422e-8f0a-fe0799649831"
+    },
+    {
+      "name" : "system-release",
+      "version" : "1:2-14.amzn2",
+      "purl" : "pkg:rpm/amazon/system-release@1%3A2-14.amzn2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "193fff59-f3fd-45bc-abb2-8f717d5dd2b3"
+    },
+    {
+      "name" : "tzdata",
+      "version" : "2022f-1.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/tzdata@2022f-1.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "9adbb2fd-5bae-41fb-b91c-cfb48da72d24"
+    },
+    {
+      "name" : "vim-data",
+      "version" : "2:9.0.828-1.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/vim-data@2%3A9.0.828-1.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "bc53fe2e-2d8d-438e-b4f8-8c87d739cd65"
+    },
+    {
+      "name" : "vim-minimal",
+      "version" : "2:9.0.828-1.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/vim-minimal@2%3A9.0.828-1.amzn2.0.1?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "e1123dc8-7cb6-43ca-9d0f-b0f31b436cc0"
+    },
+    {
+      "name" : "xml-apis:xml-apis",
+      "version" : "1.3.04",
+      "purl" : "pkg:maven/xml-apis/xml-apis@1.3.04",
+      "type" : "library",
+      "bom-ref" : "f31d636e-1330-4b07-88a6-992e4e827054"
+    },
+    {
+      "name" : "xz-libs",
+      "version" : "5.2.2-1.amzn2.0.3",
+      "purl" : "pkg:rpm/amazon/xz-libs@5.2.2-1.amzn2.0.3?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "1b01a768-1684-4dd6-93c5-35789124d6d2"
+    },
+    {
+      "name" : "yum",
+      "version" : "3.4.3-158.amzn2.0.6",
+      "purl" : "pkg:rpm/amazon/yum@3.4.3-158.amzn2.0.6?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "99ef1a13-726e-4858-89cb-494ef348dfa2"
+    },
+    {
+      "name" : "yum-metadata-parser",
+      "version" : "1.1.4-10.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/yum-metadata-parser@1.1.4-10.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "c5afc315-e9ff-4dc7-a104-7540a14a1c8a"
+    },
+    {
+      "name" : "yum-plugin-ovl",
+      "version" : "1.1.31-46.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/yum-plugin-ovl@1.1.31-46.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "77367a8f-1e5b-4e5e-b7fc-1461b2b302a6"
+    },
+    {
+      "name" : "yum-plugin-priorities",
+      "version" : "1.1.31-46.amzn2.0.1",
+      "purl" : "pkg:rpm/amazon/yum-plugin-priorities@1.1.31-46.amzn2.0.1?arch=noarch&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "a4479807-85b2-4744-aca9-138e733f98c7"
+    },
+    {
+      "name" : "zlib",
+      "version" : "1.2.7-19.amzn2.0.2",
+      "purl" : "pkg:rpm/amazon/zlib@1.2.7-19.amzn2.0.2?arch=x86_64&distro=amazon-2%20%28Karoo%29",
+      "type" : "library",
+      "bom-ref" : "62ff60be-ad60-43d0-8df1-30b13b2a82a2"
+    }
+  ],
+  "vulnerabilities" : [
+    {
+      "bom-ref" : "daed52f9-c8d2-4caf-9850-8458f05f7ede",
+      "id" : "CVE-2019-10086",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.5,
+          "severity" : "high",
+          "method" : "CVSSv2",
+          "vector" : "(AV:N/AC:L/Au:N/C:P/I:P/A:P)"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.3,
+          "severity" : "high",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "In Apache Commons Beanutils 1.9.2, a special BeanIntrospector class was added which allows suppressing the ability for an attacker to access the classloader via the class property available on all Java objects. We, however were not using this by default characteristic of the PropertyUtilsBean.",
+      "published" : "2019-08-20T21:15:00Z",
+      "updated" : "2022-07-25T18:15:00Z",
+      "affects" : [
+        {
+          "ref" : "f6ac1265-6e8f-4aca-8582-6f8614b2afc2"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "475bc2ab-5daf-47d0-bde8-785a78efd9a5",
+      "id" : "CVE-2014-0114",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.5,
+          "severity" : "high",
+          "method" : "CVSSv2",
+          "vector" : "(AV:N/AC:L/Au:N/C:P/I:P/A:P)"
+        }
+      ],
+      "cwes" : [
+        20
+      ],
+      "description" : "Apache Commons BeanUtils, as distributed in lib/commons-beanutils-1.8.0.jar in Apache Struts 1.x through 1.3.10 and in other products requiring commons-beanutils through 1.9.2, does not suppress the class property, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via the class parameter, as demonstrated by the passing of this parameter to the getClass method of the ActionForm object in Struts 1.",
+      "published" : "2014-04-30T10:49:00Z",
+      "updated" : "2021-01-26T18:15:00Z",
+      "affects" : [
+        {
+          "ref" : "f6ac1265-6e8f-4aca-8582-6f8614b2afc2"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "ffa45a51-f661-4eaa-88c4-6a8366cb0734",
+      "id" : "CVE-2022-45143",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "severity" : "unknown",
+          "method" : "other"
+        }
+      ],
+      "cwes" : [
+        74
+      ],
+      "description" : "The JsonErrorReportValve in Apache Tomcat 8.5.83, 9.0.40 to 9.0.68 and 10.1.0-M1 to 10.1.1 did not escape the type, message or description values. In some circumstances these are constructed from user provided data and it was therefore possible for users to supply values that invalidated or manipulated the JSON output.",
+      "published" : "2023-01-03T19:15:00Z",
+      "updated" : "2023-01-04T14:02:00Z",
+      "affects" : [
+        {
+          "ref" : "8026e7d7-14a0-4106-ab79-7839d96aa600"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "de034043-08e9-443b-a922-c1c58d391be8",
+      "id" : "CVE-2016-1000027",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.5,
+          "severity" : "high",
+          "method" : "CVSSv2",
+          "vector" : "(AV:N/AC:L/Au:N/C:P/I:P/A:P)"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 9.8,
+          "severity" : "critical",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE) issue if used for Java deserialization of untrusted data. Depending on how the library is implemented within a product, this issue may or not occur, and authentication may be required. NOTE: the vendor's position is that untrusted data is not an intended use case. The product's behavior will not be changed because some users rely on deserialization of trusted data.",
+      "published" : "2020-01-02T23:15:00Z",
+      "updated" : "2022-12-07T19:59:00Z",
+      "affects" : [
+        {
+          "ref" : "35b21694-c69c-4134-a642-59763ff8313f"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "cd3a2d39-f0ef-452d-9774-834c34d13da1",
+      "id" : "CVE-2022-38750",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 5.5,
+          "severity" : "medium",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow.",
+      "published" : "2022-09-05T10:15:00Z",
+      "updated" : "2022-10-06T12:51:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "bcd30520-bcc3-44dc-8d85-5b0950bafbc9",
+      "id" : "CVE-2022-41854",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "Those using Snakeyaml to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stack overflow. This effect may support a denial of service attack.",
+      "published" : "2022-11-11T13:15:00Z",
+      "updated" : "2022-12-21T04:15:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "4ccac3ba-c5c5-4537-aefe-fa39f215275b",
+      "id" : "CVE-2022-38752",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stack-overflow.",
+      "published" : "2022-09-05T10:15:00Z",
+      "updated" : "2022-09-27T18:16:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "be8a1e67-2d0e-443a-929d-4d20893d602f",
+      "id" : "CVE-2022-38751",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow.",
+      "published" : "2022-09-05T10:15:00Z",
+      "updated" : "2022-10-06T12:46:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "bae84999-bab3-45eb-ad45-221f1fc8e726",
+      "id" : "CVE-2022-38749",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow.",
+      "published" : "2022-09-05T10:15:00Z",
+      "updated" : "2022-10-06T12:52:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "a6c269bb-1776-4dd4-872d-534b690f51f7",
+      "id" : "CVE-2022-25857",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.5,
+          "severity" : "high",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        400
+      ],
+      "description" : "The package org.yaml:snakeyaml from 0 and before 1.31 are vulnerable to Denial of Service (DoS) due missing to nested depth limitation for collections.",
+      "published" : "2022-08-30T05:15:00Z",
+      "updated" : "2022-10-06T15:30:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    },
+    {
+      "bom-ref" : "5483eb85-4676-4637-b68c-694f03a0ebc5",
+      "id" : "CVE-2022-1471",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 9.8,
+          "severity" : "critical",
+          "method" : "CVSSv3",
+          "vector" : "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        502
+      ],
+      "description" : "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content to restrict deserialization.",
+      "published" : "2022-12-01T11:15:00Z",
+      "updated" : "2022-12-19T11:15:00Z",
+      "affects" : [
+        {
+          "ref" : "74c48fa4-16bb-45f1-bb6f-7621640c61ed"
+        }
+      ]
+    }
+  ]
+}
