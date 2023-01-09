@@ -194,9 +194,16 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
-      - name: Upload SBOM to Dependency Track
-        run: |
-          curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
+      - name: Upload SBOM to Dependency Track with Custom Action
+        uses: ./actions/dependency-track
+        with:
+          api-key: ${{secrets.DT_API_KEY}}
+          project-key: ${{secrets.DT_PROJECT_KEY}}
+          api-url: ${{secrets.DT_API_URL}}
+          bom: 'cyclonedx.json'
+      # - name: Upload SBOM to Dependency Track
+      #   run: |
+      #     curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
   container:
     runs-on: ubuntu-latest
     needs:
