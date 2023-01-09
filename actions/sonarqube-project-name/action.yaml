@@ -5,4 +5,4 @@ outputs:
     description: 'SonarQube Project Name'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'

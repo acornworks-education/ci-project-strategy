@@ -6,3 +6,4 @@ gradle.lockfile
 cosign.key
 cosign.pub
 yarn.lock
+node_modules
