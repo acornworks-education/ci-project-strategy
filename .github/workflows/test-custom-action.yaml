@@ -8,5 +8,6 @@ jobs:
     name: Dependency Track Test
     steps:
       - name: Test
-        uses: ci-project-strategy/dependency-tract
+        uses: ./actions/dependency-track
+
 
