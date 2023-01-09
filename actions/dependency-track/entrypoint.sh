@@ -9,6 +9,7 @@ export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
 
 if [[ $BOM == "{"* ]]; then
+    echo "Read from paylaod ..."
     echo $BOM > $UPLOAD_FILE
 fi
 
