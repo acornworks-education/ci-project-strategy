@@ -9,7 +9,7 @@ export API_URL="${API_URL}/api/v1/bom"
 export BOM=$4
 
 export CONTENT_TYPE="Content-Type:multipart/form-data"
-export UPLOAD_FILE="$(uuidgen).json"
+export UPLOAD_FILE="bom-upload.json"
 export RES_FILE="$(uuidgen).result"
 export IS_SET_BOM=0
 
@@ -32,9 +32,7 @@ fi
 
 set +e
 
-echo "bom=@$UPLOAD_FILE"
-
-curl -X "POST" -H $CONTENT_TYPE -H "X-Api-Key: $API_KEY" -F "project=$PROJECT_KEY" -F "bom=@$UPLOAD_FILE" $API_URL > $RES_FILE
+curl -X "POST" -H $CONTENT_TYPE -H "X-Api-Key: $API_KEY" -F "project=$PROJECT_KEY" -F "bom=@bom-upload.json" $API_URL
 
 export RES=$?
 echo "result=$(cat $RES_FILE)" >> $GITHUB_OUTPUT
