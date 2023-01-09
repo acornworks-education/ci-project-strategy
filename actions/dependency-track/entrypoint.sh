@@ -7,15 +7,23 @@ export BOM=$4
 export CONTENT_TYPE="Content-Type: multipart/form-data"
 export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
+export IS_SET_BOM=0
 
 if [[ $BOM == "{"* ]]; then
     echo "Read from paylaod ..."
     echo $BOM > $UPLOAD_FILE
+    export IS_SET_BOM=1
 fi
 
 if [ -f "$BOM" ]; then
     echo "Copy a payload from $BOM ..."
     cp $BOM $UPLOAD_FILE
+    export IS_SET_BOM=1
+fi
+
+if [ $IS_SET_BOM -eq 0 ]; then
+    echo "Payload is not defined ..."
+    exit 1
 fi
 
 set +e
