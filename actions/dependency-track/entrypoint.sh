@@ -8,7 +8,7 @@ export CONTENT_TYPE="Content-Type: multipart/form-data"
 export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
 
-if [[ $BOM == "{*" ]]; then
+if [[ $BOM == "{"* ]]; then
     echo $BOM > $UPLOAD_FILE
 fi
 
