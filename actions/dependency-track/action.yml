@@ -7,7 +7,7 @@ inputs:
   project-key:
     description: 'Object identifier for a project'
     required: true
-  url:
+  api-url:
     description: 'Dependency Track API URL. The value shoud start from http:// or https://'
     required: true
   bom:
@@ -24,7 +24,7 @@ runs:
   args:
     - ${{ inputs.api-key }}
     - ${{ inputs.proejct-key }}
-    - ${{ inputs.url }}
+    - ${{ inputs.api-url }}
     - ${{ inputs.bom }}
 
   

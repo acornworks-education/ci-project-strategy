@@ -1,7 +1,8 @@
 #!/bin/sh 
 export API_KEY=$1
 export PROJECT_KEY=$2
-export API_URL="$3/api/v1/bom"
+export API_URL=$3
+export API_URL="${API_URL}/api/v1/bom"
 export BOM=$4
 
 export CONTENT_TYPE="Content-Type: multipart/form-data"

@@ -12,7 +12,7 @@ This action uploads a SBOM description to Denpendency Track server.
 
 **Required** Object identifier for a project
 
-## `url`
+## `api-url`
 
 **Required** Dependency Track API URL. The value shoud start from http:// or https://
 
