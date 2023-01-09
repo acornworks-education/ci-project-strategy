@@ -1,0 +1,30 @@
+name: 'Upload SBOM'
+description: 'Upload SBOM to Dependency Track'
+inputs:
+  api-key:
+    description: 'Dependency Track API Key'
+    required: true
+  project-key:
+    description: 'Object identifier for a project'
+    required: true
+  url:
+    description: 'Dependency Track API URL. The value shoud start from http:// or https://'
+    required: true
+  bom:
+    description: 'File name or CycloneDX SBOM spec with JSON format'
+    required: true
+outputs:
+  result:
+    description: 'API response'
+  api-url:
+    description: 'API Call URL'
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.api-key }}
+    - ${{ inputs.proejct-key }}
+    - ${{ inputs.url }}
+    - ${{ inputs.bom }}
+
+  

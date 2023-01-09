@@ -1,0 +1,9 @@
+# name: test-custom-action
+# run-name: Test a custom action
+# on:
+#   - push
+# jobs:
+#   docker-test:
+#     runs-on: ubuntu-latest
+#     name: Dependency Track Test
+
