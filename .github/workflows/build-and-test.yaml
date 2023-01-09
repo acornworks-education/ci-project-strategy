@@ -1,11 +1,11 @@
 name: build-test-strategy-service
 run-name: Build and test for strategy service
-# on:
-#   pull_request:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 env:
   REGISTRY: ghcr.io
 jobs:
@@ -173,30 +173,9 @@ jobs:
       - name: Execute Gradle dependency lock
         run: ./gradlew dependencies --write-locks
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+        uses: ./actions/trivy-scan
         with:
           scan-type: fs
-          scan-ref: .
-          ignore-unfixed: true
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
-      - name: Generate SBOM
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: fs
-          scan-ref: .
-          ignore-unfixed: true
-          security-checks: vuln
-          format: 'cyclonedx'
-          output: 'cyclonedx.json'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'trivy-results.sarif'
-      - name: Upload SBOM to Dependency Track
-        run: |
-          curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=$(cat cyclonedx.json)" ${{secrets.DT_API_URL}}/api/v1/bom
   container:
     runs-on: ubuntu-latest
     needs:
@@ -242,32 +221,10 @@ jobs:
       - name: Pull image
         run: docker pull ${{ env.image_name }}
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+        uses: ./actions/trivy-scan
         with:
           scan-type: image
-          image-ref: ${{ env.image_name }}
-          ignore-unfixed: true
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
-          vuln-type: 'os,library'
-      - name: Generate SBOM
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: image
-          image-ref: ${{ env.image_name }}
-          ignore-unfixed: true
-          severity: 'CRITICAL'
-          format: 'cyclonedx'
-          output: 'cyclonedx.json'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          category: image-scan
-          sarif_file: 'trivy-results.sarif'
-      - name: Upload SBOM to Dependency Track
-        run: |
-          curl -X "POST" -H "Content-Type: multipart/form-data" -H "X-Api-Key: ${{secrets.DT_API_KEY}}" -F "project=${{secrets.DT_PROJECT_KEY}}" -F "bom=@cyclonedx.json" ${{secrets.DT_API_URL}}/api/v1/bom
+          trivy-ref: ${{ env.image_name }}          
   slack-failure-notification:
     needs:
       - conftest

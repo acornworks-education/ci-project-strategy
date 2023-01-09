@@ -1,21 +1,21 @@
-name: test-custom-action
-run-name: Test a custom action
-on:
-  - pull_request
-jobs:
-  docker-test:
-    runs-on: ubuntu-latest
-    name: Dependency Track Test
-    steps:
-      - name: Source code checkout
-        uses: actions/checkout@v3
-      - name: SonarQube project name
-        uses: ./actions/sonarqube-project-name        
-      - name: Test
-        uses: ./actions/dependency-track
-        with:
-          api-key: ${{secrets.DT_API_KEY}}
-          project-key: ${{secrets.DT_PROJECT_KEY}}
-          api-url: ${{secrets.DT_API_URL}}
-          bom: 'test.sjon'
+# name: test-custom-action
+# run-name: Test a custom action
+# on:
+#   - pull_request
+# jobs:
+#   docker-test:
+#     runs-on: ubuntu-latest
+#     name: Dependency Track Test
+#     steps:
+#       - name: Source code checkout
+#         uses: actions/checkout@v3
+#       - name: SonarQube project name
+#         uses: ./actions/sonarqube-project-name        
+#       - name: Test
+#         uses: ./actions/dependency-track
+#         with:
+#           api-key: ${{secrets.DT_API_KEY}}
+#           project-key: ${{secrets.DT_PROJECT_KEY}}
+#           api-url: ${{secrets.DT_API_URL}}
+#           bom: 'test.json'
 
