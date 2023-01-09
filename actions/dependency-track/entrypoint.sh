@@ -13,7 +13,8 @@ if [[ $BOM == "{"* ]]; then
     echo $BOM > $UPLOAD_FILE
 fi
 
-if [ -f $BOM ]; then
+if [ -f "$BOM" ]; then
+    echo "Copy a payload from $BOM ..."
     cp $BOM $UPLOAD_FILE
 fi
 
