@@ -5,3 +5,5 @@ build/
 gradle.lockfile
 cosign.key
 cosign.pub
+node_modules
+yarn.lock

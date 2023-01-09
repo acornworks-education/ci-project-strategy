@@ -1,0 +1,8 @@
+name: 'SonarQube Communuity edition project nane generator'
+description: 'SonarQube Communuity edition project nane generator'
+outputs:
+  sonarqube_project_name:
+    description: 'Project name'
+runs:
+  using: 'node16'
+  main: 'index.js'

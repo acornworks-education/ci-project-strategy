@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Source code checkout
         uses: actions/checkout@v3
+      - name: SonarQube project name
+        uses: ./actions/sonarqube-project-name        
       - name: Test
         uses: ./actions/dependency-track
         with:
