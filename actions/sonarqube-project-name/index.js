@@ -4,7 +4,7 @@ const github = require('@actions/github');
 console.log(github.context.payload.pull_request.head.ref);
 
 const repoName = github.context.repo.repo.replace('/', '-');
-const branchName = github.context.payload.pull_request.head.ref('/', '-');
+const branchName = github.context.payload.pull_request.head.ref.replace('/', '-');
 const projectName = `${repoName}-${branchName}`;
 
 console.log('Project name', projectName);
