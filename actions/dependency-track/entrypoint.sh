@@ -5,9 +5,6 @@ export API_URL=$3
 export API_URL="${API_URL}/api/v1/bom"
 export BOM=$4
 
-
-echo "${API_URL}"
-
 export CONTENT_TYPE="Content-Type: multipart/form-data"
 export UPLOAD_FILE="$(uuidgen).json"
 export RES_FILE="$(uuidgen).result"
@@ -31,6 +28,9 @@ if [ $IS_SET_BOM -eq 0 ]; then
 fi
 
 set +e
+
+echo "bom=@$UPLOAD_FILE"
+
 curl -X "POST" -H $CONTENT_TYPE -H "X-Api-Key: $API_KEY" -F "project=$PROJECT_KEY" -F "bom=@$UPLOAD_FILE" $API_URL > $RES_FILE
 
 export RES=$?

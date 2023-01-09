@@ -14,6 +14,7 @@ jobs:
         with:
           api-key: ${{secrets.DT_API_KEY}}
           project-key: ${{secrets.DT_PROJECT_KEY}}
-          api-url: ${{secrets.DT_API_URL}}
+          # api-url: ${{secrets.DT_API_URL}}
+          api-ur: http://http://202.138.30.211/:60003
           bom: '{"aaa": "bbb"}'
 
