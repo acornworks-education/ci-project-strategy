@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Dependency Track Test
     steps:
+      - name: Source code checkout
+        uses: actions/checkout@v3
       - name: Test
         uses: ./actions/dependency-track
 
