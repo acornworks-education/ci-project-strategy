@@ -1,7 +1,6 @@
 name: test-custom-action
 run-name: Test a custom action
 on:
-  - push
   - pull_request
 jobs:
   docker-test:
