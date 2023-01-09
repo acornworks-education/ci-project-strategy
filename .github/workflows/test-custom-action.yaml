@@ -2,6 +2,7 @@ name: test-custom-action
 run-name: Test a custom action
 on:
   - push
+  - pull_request
 jobs:
   docker-test:
     runs-on: ubuntu-latest
@@ -11,5 +12,3 @@ jobs:
         uses: actions/checkout@v3
       - name: Test
         uses: ./actions/dependency-track
-
-
