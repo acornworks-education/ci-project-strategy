@@ -12,15 +12,12 @@ inputs:
   api-key:
     description: 'Dependency Track API Key'
     required: true
-    default: ${{secrets.DT_API_KEY}}
   project-key:
     description: 'Object identifier for a project'
     required: true
-    default: ${{secrets.DT_PROJECT_KEY}}
   api-url:
     description: 'Dependency Track API URL. The value shoud start from http:// or https://'
     required: true
-    default: ${{secrets.DT_API_URL}}
   bom:
     description: 'File name or CycloneDX SBOM spec with JSON format'
     required: true
