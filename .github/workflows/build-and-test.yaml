@@ -138,7 +138,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.projectKey=${{env.sonarqube_project_name}}
+            -Dsonar.projectKey=${{steps.sname.outputs.sonarqube-project-name}}
             -Dsonar.java.binaries=./build/classes/java
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
@@ -150,7 +150,7 @@ jobs:
       - name: Delete a SonarQube project
         if: ${{ github.event_name == 'pull_request' }}
         run: |
-          curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/delete" -d "project=${{env.sonarqube_project_name}}"
+          curl -u ${{secrets.SONARQUBE_TOKEN}} -X POST -H "Content-Type: application/x-www-form-urlencoded" "${{secrets.SONARQUBE_API_URL}}/api/projects/delete" -d "project=${{steps.sname.outputs.sonarqube-project-name}}"
   trivy:
     needs:
       - conftest
